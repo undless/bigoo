@@ -53,7 +53,7 @@ Well, to use it in your project :
     <h1 class="bigoo bigoo-arrow-circle-left">Big Title Here</h1>
     ```
     But be aware that the line-height property is set to 0.
-    I would recommand to use a specific <i>, <span> or <div> tag.
+    I would recommand to use a specific ```<i>```, ```<span>``` or ```<div>``` tag.
 
 ## Hooks
 
