@@ -145,6 +145,7 @@ ol {
   margin: 100px auto;
 }
 .description {
+  position: relative;
   padding: 40px;
   max-width: 600px;
   line-height: 1.8em;
@@ -192,6 +193,23 @@ ol {
     }
     .size.size-active {
       box-shadow:  0 0 0 1px #888 inset;
+    }
+
+    .picker-reset {
+      position: absolute;
+      top: 100%;
+      margin: 10px 0 0;
+      right: 0;
+      font-size: 0.7em;
+      line-height: 1em;
+      text-decoration: underline;
+      cursor: pointer;
+      padding: 5px;
+      color: #CCC;
+    }
+    .picker-reset:hover,
+    .picker-reset:focus {
+      color: #888;
     }
 
 .demo {

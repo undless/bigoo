@@ -32,6 +32,7 @@
     <div id="sizepicker" class="picker">
       <div class="picker-label">Size</div>
     </div>
+    <div id="pickerReset" class="picker-reset">Reset colors and size</div>
   </div>
   
   <div id="demo" class="demo"></div>
@@ -197,13 +198,13 @@
 
     for (i=0; i<iconlist.length; i++) {
 
-      var iconblock = document.createElement("div");
+      var iconblock = document.createElement('div');
       iconblock.classList.add('iconblock');
       
-      var iconname = document.createElement("span");
+      var iconname = document.createElement('span');
       iconname.classList.add('iconname');
 
-      var icon = document.createElement("i");
+      var icon = document.createElement('i');
       icon.classList.add('bigoo',iconlist[i]);
       iconname.innerHTML = iconlist[i];
 
@@ -260,6 +261,16 @@
     var defaultSecondColor = colors[17];
     var defaultSize = sizes[4];
 
+    if (localStorage.getItem('bigoo-main-color')) {
+      defaultMainColor = localStorage.getItem('bigoo-main-color');
+    }
+    if (localStorage.getItem('bigoo-second-color')) {
+      defaultSecondColor = localStorage.getItem('bigoo-second-color');
+    }
+    if (localStorage.getItem('bigoo-size')) {
+      defaultSize = localStorage.getItem('bigoo-size');
+    }
+
     var hexcodeMain = document.getElementsByClassName('hexcode-main');
     var hexcodeSecond = document.getElementsByClassName('hexcode-second');
 
@@ -269,8 +280,9 @@
     var title = document.getElementById('title');
 
     // init colors
-    document.body.style.setProperty("--bigoo-main-color", defaultMainColor);
-    document.body.style.setProperty("--bigoo-second-color", defaultSecondColor);
+    document.body.style.setProperty('--bigoo-main-color', defaultMainColor);
+    document.body.style.setProperty('--bigoo-second-color', defaultSecondColor);
+
     for (i=0; i<hexcodeMain.length; i++) {
       hexcodeMain[i].innerHTML = defaultMainColor;
     }
@@ -284,7 +296,7 @@
 
     function createColorPicker(wrapper, defaultColor) {
       for (i=0; i<colors.length; i++) {
-        var color = document.createElement("div");
+        var color = document.createElement('div');
         color.classList.add('color');
         color.style.backgroundColor = colors[i];
         color.setAttribute('data-color', colors[i]);
@@ -298,9 +310,11 @@
           }
           this.classList.add('color-active');
           if (wrapper === colorpicker1) {
+            localStorage.setItem("bigoo-main-color",this.getAttribute('data-color'));
             setColorProperty(hexcodeMain, '--bigoo-main-color', this.getAttribute('data-color'));
           }
           if (wrapper === colorpicker2) {
+            localStorage.setItem("bigoo-second-color",this.getAttribute('data-color'));
             setColorProperty(hexcodeSecond, '--bigoo-second-color', this.getAttribute('data-color'));
           }
         });
@@ -316,14 +330,14 @@
     }
     
     // init size
-    document.body.style.setProperty("--icon-size", defaultSize);
+    document.body.style.setProperty('--icon-size', defaultSize);
 
     // Size Picker
     createSizePicker(sizepicker, defaultSize);
 
     function createSizePicker(wrapper, defaultSize) {
       for (i=0; i<sizes.length; i++) {
-        var size = document.createElement("div");
+        var size = document.createElement('div');
         size.classList.add('size');
         size.innerHTML = sizes[i];
         size.setAttribute('data-size', sizes[i]);
@@ -336,15 +350,56 @@
             turnoff[i].classList.remove('size-active');
           }
           this.classList.add('size-active');
-          document.body.style.setProperty("--icon-size", this.getAttribute('data-size'));
+          localStorage.setItem("bigoo-size",this.getAttribute('data-size'));
+          document.body.style.setProperty('--icon-size', this.getAttribute('data-size'));
         });
         wrapper.appendChild(size);
       }
     }
 
+    // Reset ALL Custom settings
+    var pickerReset = document.getElementById('pickerReset');
+    
+    pickerReset.addEventListener('click', function() {
 
-  
-  
+      localStorage.removeItem("bigoo-main-color");
+      localStorage.removeItem("bigoo-second-color");
+      localStorage.removeItem("bigoo-size");
+
+      defaultMainColor = colors[6];
+      defaultSecondColor = colors[17];
+      defaultSize = sizes[4];
+
+      var resetAll = colorpicker1.getElementsByClassName('color');
+      
+      for (i=0; i<resetAll.length; i++) {
+        if (resetAll[i].getAttribute('data-color') === defaultMainColor) {
+          resetAll[i].classList.add('color-active');
+        } else {
+          resetAll[i].classList.remove('color-active');
+        }
+      }
+      resetAll = colorpicker2.getElementsByClassName('color');
+      for (i=0; i<resetAll.length; i++) {
+        if (resetAll[i].getAttribute('data-color') === defaultSecondColor) {
+          resetAll[i].classList.add('color-active');
+        } else {
+          resetAll[i].classList.remove('color-active');
+        }
+      }
+      resetAll = document.getElementsByClassName('size');
+      for (i=0; i<resetAll.length; i++) {
+        if (resetAll[i].getAttribute('data-size') === defaultSize) {
+          resetAll[i].classList.add('size-active');
+        } else {
+          resetAll[i].classList.remove('size-active');
+        }
+      }
+
+      setColorProperty(hexcodeMain, '--bigoo-main-color', defaultMainColor);
+      setColorProperty(hexcodeSecond, '--bigoo-second-color', defaultSecondColor);
+      document.body.style.setProperty('--icon-size', defaultSize);
+    });
   
   </script>
 </body>
