@@ -1,0 +1,351 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1"/>
+    <link rel="stylesheet" type="text/css" href="fonts/bigoo/bigoo.min.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/index.css">
+    <title>Bigoo - Font Icon</title>
+</head>
+<body>
+  <h1 id="title" class="title">Bigo<span class="secondColor">o</span></h1>
+  <div class="subtitle">Bicolor Font Icon by <a class="ninjalink" href="http://undless.fr">undless</a></div>
+
+  <div class="githublink">Hosted on <a href="https://github.com/undless/bigoo" class="link">Github</a></div>
+
+  <div class="text">
+    <b>Bigo<span class="secondColor">o</span></b> is a bicolor font icon.<br>
+    CSS & font-face only, as regular font icon.<br>
+    <span class="highlight">I'll update the project with new icons, <a href="https://github.com/undless/bigoo" class="ninjalink"><strong>stay tuned!</strong></a></span>
+  </div>
+
+  <div class="description pickers">
+    <h2>It's so FLUFFY</h2>
+    <div class="picker-text">Because it's a font, you can change colors and size the way you want / need / love :</div>
+    <div id="colorpicker1" class="picker">
+      <div class="picker-label">Main Color</div>
+    </div>
+    <div id="colorpicker2" class="picker">
+      <div class="picker-label">Second Color</div>
+    </div>
+    <div id="sizepicker" class="picker">
+      <div class="picker-label">Size</div>
+    </div>
+  </div>
+  
+  <div id="demo" class="demo"></div>
+
+  <div class="description">
+    <h2>I NEED IT</h2>
+    Well, to use it in your project : <br><br>
+    <ol>
+      <li><a href="downloads/bigoo.zip" class="link">Download the file</a></li>
+      <li>Unzip where you want in your project</li>
+      <li>Link the css to your project : <span class="code">&lt;link rel="stylesheet" type="text/css" href="yourPathToTheFile/bigoo/bigoo.min.css"&gt;</span></li>
+      <li>Chose the two colors you want and add them in your own CSS using CSS Variables (<a href="https://caniuse.com/#feat=css-variables" class="link">CSS Variables Support table</a> )
+        <span class="code">
+        ::root {<br>
+          &emsp;--bigoo-main-color: <span class="hexcode-main"></span>;<br>
+          &emsp;--bigoo-second-color: <span class="hexcode-second"></span>;<br>
+        }</span>
+        Make sure that this declaration is made BEFORE the bigoo.min.css import.<br><br>
+
+        <b>If you prefer to use SASS Variables:</b><br>
+        <a href="downloads/bigooSCSS.zip" class="link">Download the SASS version</a>
+        and set the two colors you want in your SCSS vars definitions
+        <span class="code">
+          $bigoo-main-color: <span class="hexcode-main"></span>;<br>
+          $bigoo-second-color: <span class="hexcode-second"></span>;<br>
+        </span>
+        Make sure that the var initialization is made BEFORE the bigoo.min.scss import and to preprocess it with all your other stylesheets.<br><br>
+
+        <b>If you dont want to use variables at all:</b><br>
+        Just edit the bigoo.min.css file with your 2 colors: 
+        <span class="code">
+          .bigoo:before{color:<span class="hexcode-main"></span>}<br>
+          .bigoo:after{color:<span class="hexcode-second"></span>}
+        </span>
+      </li>
+      <li>Use it in your project. You need the general class "bigoo" and the specific icon class. Exemple: <span class="code">&lt;i class="bigoo bigoo-arrow-circle-left"&gt;&lt;/i&gt;</span> You can use it directly on existing tags with text inside. <span class="code">&lt;h1 class="bigoo bigoo-arrow-circle-left"&gt;Big Title Here&lt;/h1&gt;</span> But be aware that the line-height property is set to 0.<br>
+        I would recommand to use a specific &lt;i&gt;, &lt;span&gt; or &lt;div&gt; tag.</li>
+    </ol>
+  </div>
+
+
+  <div class="description hooks">
+    <h2>Hooks</h2>
+    The <b>Bigo<span class="secondColor">o</span></b> CSS is !important free and single class only so you can easily overide any style from your own CSS. Here are some exemples:<br><br>
+    
+    If you need spécific color on only one icon:
+    <span class="code">
+      .bigoo-cross::before {<br>
+        &emsp;color:darkred;<br>
+      }<br>
+      .bigoo-cross::after {<br>
+        &emsp;color:red;<br>
+      }
+    </span>
+    <span class="exemple"><i class="bigoo bigoo-cross"></i></span>
+
+    If you need animation:
+    <span class="code">
+      .bigoo-battery-1::before {<br>
+        &emsp;color:red;<br>
+        &emsp;animation-name: lowbattery;<br>
+        &emsp;animation-duration: 1s;<br>
+        &emsp;animation-iteration-count: infinite;<br>
+      }<br>
+      @keyframes lowbattery {<br>
+        &emsp;0% {opacity: 1;}<br>
+        &emsp;49% {opacity: 1;}<br>
+        &emsp;50% {opacity: 0;}<br>
+        &emsp;100% {opacity: 0;}<br>
+      }<br>
+      .bigoo-battery-1::after {<br>
+        &emsp;color:#ddd;<br>
+      }
+    </span>
+    <span class="exemple"><i class="bigoo bigoo-battery-1"></i></span>
+
+    
+    If you need hover effect:
+    <span class="code">
+      .hooks .bigoo-rafters-up::after {<br>
+        &emsp;transform: translateY(0);<br>
+        &emsp;transition: transform 200ms;<br>
+      }<br>
+      .hooks .bigoo-rafters-up:hover::after {<br>
+        &emsp;transform: translateY(-14px);<br>
+      }
+    </span>
+    <span class="exemple"><i class="bigoo bigoo-rafters-up"></i></span>
+
+    Do what you want, and show me!
+
+  </div>
+  
+  <br><br><br><br>
+  <h2>Anything else ?</h2><br>
+  Feel free to open an <a href="https://github.com/undless/bigoo/issues" class="link">issue on Github</a> i'll answer as fast as i can.<br><br><br><br>
+  Enjoy!<br><br><br><br><br><br>
+</div>
+
+  <footer class="footer">
+    Made with love by <a class="link" href="http://undless.fr">undless</a>
+  </footer>
+
+  <script>
+  
+    // Icon Demo Creation
+
+    var iconlist = [
+        'bigoo-arrow-circle-left',
+        'bigoo-arrow-circle-right',
+        'bigoo-arrow-double-left',
+        'bigoo-arrow-double-right',
+        'bigoo-arrow-down',
+        'bigoo-arrow-left',
+        'bigoo-arrow-right',
+        'bigoo-arrow-up',
+        'bigoo-rafter-down',
+        'bigoo-rafter-left',
+        'bigoo-rafter-right',
+        'bigoo-rafter-up',
+        'bigoo-check',
+        'bigoo-cross',
+        'bigoo-info',
+        'bigoo-minus',
+        'bigoo-plus',
+        'bigoo-question',
+        'bigoo-danger',
+        'bigoo-rafters-down',
+        'bigoo-rafters-left',
+        'bigoo-rafters-right',
+        'bigoo-rafters-up',
+        'bigoo-arrow-rect-left',
+        'bigoo-arrow-rect-right',
+        'bigoo-battery-empty',
+        'bigoo-battery-0',
+        'bigoo-battery-1',
+        'bigoo-battery-2',
+        'bigoo-battery-3',
+        'bigoo-battery-4',
+        'bigoo-battery-5',
+        'bigoo-checkbox',
+        'bigoo-checkbox-checked',
+        'bigoo-checkbox-minus',
+        'bigoo-cursors',
+        'bigoo-cursors',
+        'bigoo-edit',
+        'bigoo-edit',
+        'bigoo-circle',
+        'bigoo-eye',
+        'bigoo-eye-blocked',
+        'bigoo-radio',
+        'bigoo-radio-checked',
+        'bigoo-upload',
+        'bigoo-download',
+        'bigoo-switch-off',
+        'bigoo-switch-on',
+        'bigoo-time',
+        'bigoo-time-back',
+        'bigoo-time-glass'
+    ];
+
+    var demo = document.getElementById('demo');
+
+    for (i=0; i<iconlist.length; i++) {
+
+      var iconblock = document.createElement("div");
+      iconblock.classList.add('iconblock');
+      
+      var iconname = document.createElement("span");
+      iconname.classList.add('iconname');
+
+      var icon = document.createElement("i");
+      icon.classList.add('bigoo',iconlist[i]);
+      iconname.innerHTML = iconlist[i];
+
+      iconblock.appendChild(icon);
+      iconblock.appendChild(iconname);
+      demo.appendChild(iconblock);
+    }
+
+    // Demo Colors and Size Customization
+    var colors = [
+      '#f44336',
+      '#e91e63',
+      '#9c27b0',
+      '#673ab7',
+      '#3f51b5',
+      '#2196f3',
+      '#03a9f4',
+      '#00bcd4',
+      '#009688',
+      '#4caf50',
+      '#8bc34a',
+      '#cddc39',
+      '#ffeb3b',
+      '#ffc107',
+      '#ff9800',
+      '#ff5722',
+      '#795548',
+      '#607d8b',
+      '#EEEEEE',
+      '#DDDDDD',
+      '#AAAAAA',
+      '#888888',
+      '#444444',
+      '#222222',
+      '#000000'
+    ];
+    var sizes = [
+      '14px',
+      '16px',
+      '18px',
+      '20px',
+      '22px',
+      '24px',
+      '26px',
+      '28px',
+      '30px',
+      '32px',
+      '34px',
+      '36px',
+      '38px'
+    ];
+    
+    var defaultMainColor = colors[6];
+    var defaultSecondColor = colors[17];
+    var defaultSize = sizes[4];
+
+    var hexcodeMain = document.getElementsByClassName('hexcode-main');
+    var hexcodeSecond = document.getElementsByClassName('hexcode-second');
+
+    var colorpicker1 = document.getElementById('colorpicker1');
+    var colorpicker2 = document.getElementById('colorpicker2');
+    var sizepicker = document.getElementById('sizepicker');
+    var title = document.getElementById('title');
+
+    // init colors
+    document.body.style.setProperty("--bigoo-main-color", defaultMainColor);
+    document.body.style.setProperty("--bigoo-second-color", defaultSecondColor);
+    for (i=0; i<hexcodeMain.length; i++) {
+      hexcodeMain[i].innerHTML = defaultMainColor;
+    }
+    for (i=0; i<hexcodeSecond.length; i++) {
+      hexcodeSecond[i].innerHTML = defaultSecondColor;
+    }
+
+    // Color Picker
+    createColorPicker(colorpicker1, defaultMainColor);
+    createColorPicker(colorpicker2, defaultSecondColor);
+
+    function createColorPicker(wrapper, defaultColor) {
+      for (i=0; i<colors.length; i++) {
+        var color = document.createElement("div");
+        color.classList.add('color');
+        color.style.backgroundColor = colors[i];
+        color.setAttribute('data-color', colors[i]);
+        if (colors[i] === defaultColor) {
+          color.classList.add('color-active');
+        }
+        color.addEventListener('click', function() {
+          var turnoff = wrapper.getElementsByClassName('color-active');
+          for (i=0; i<turnoff.length; i++) {
+            turnoff[i].classList.remove('color-active');
+          }
+          this.classList.add('color-active');
+          if (wrapper === colorpicker1) {
+            setColorProperty(hexcodeMain, '--bigoo-main-color', this.getAttribute('data-color'));
+          }
+          if (wrapper === colorpicker2) {
+            setColorProperty(hexcodeSecond, '--bigoo-second-color', this.getAttribute('data-color'));
+          }
+        });
+        wrapper.appendChild(color);
+      }
+    }
+
+    function setColorProperty(elemArray, property, value) {
+      for (i=0; i<elemArray.length; i++) {
+        elemArray[i].innerHTML = value;
+      }
+      document.body.style.setProperty(property, value);
+    }
+    
+    // init size
+    document.body.style.setProperty("--icon-size", defaultSize);
+
+    // Size Picker
+    createSizePicker(sizepicker, defaultSize);
+
+    function createSizePicker(wrapper, defaultSize) {
+      for (i=0; i<sizes.length; i++) {
+        var size = document.createElement("div");
+        size.classList.add('size');
+        size.innerHTML = sizes[i];
+        size.setAttribute('data-size', sizes[i]);
+        if (sizes[i] === defaultSize) {
+          size.classList.add('size-active');
+        }
+        size.addEventListener('click', function() {
+          var turnoff = wrapper.getElementsByClassName('size-active');
+          for (i=0; i<turnoff.length; i++) {
+            turnoff[i].classList.remove('size-active');
+          }
+          this.classList.add('size-active');
+          document.body.style.setProperty("--icon-size", this.getAttribute('data-size'));
+        });
+        wrapper.appendChild(size);
+      }
+    }
+
+
+  
+  
+  
+  </script>
+</body>
+</html>

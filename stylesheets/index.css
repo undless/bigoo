@@ -1,0 +1,276 @@
+
+* {
+  margin:0;
+  padding:0;
+}
+
+@font-face {
+	font-family: 'colortube';
+	src:url('../fonts/colortube-webfont.woff2') format('woff2'),
+			url('../fonts/colortube-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+html {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+body {
+  position: relative;
+  font-family: sans-serif;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: auto;
+  text-align: center;
+  color: #888;
+} 
+  ::-moz-selection {
+    background-color:var(--bigoo-main-color);
+    color:#fff;
+  }
+  ::selection {
+    background-color:var(--bigoo-main-color);
+    color:#fff;
+  }
+
+  .secondColor {
+    color: var(--bigoo-second-color);
+  }
+  b {
+    color: var(--bigoo-main-color);
+  }
+  .link,
+  .link:visited {
+    color: var(--bigoo-main-color);
+  }
+  .link:hover,
+  .link:focus {
+    text-decoration: none;
+  }
+  .ninjalink,
+  .ninjalink:hover,
+  .ninjalink:focus,
+  .ninjalink:visited {
+    color: inherit;
+  }
+  .ninjalink:hover,
+  .ninjalink:focus {
+    text-decoration: none;
+  }
+  .highlight {
+    padding: 5px 15px;
+    display: inline-block;
+    background-color: var(--bigoo-main-color);
+    color: #fff;
+  }
+
+.title {
+  font-family: "colortube";
+  color: var(--bigoo-main-color);
+  padding: 50px 0 10px;
+  position: relative;
+}
+.subtitle {
+  padding: 10px 0 0;
+  display: inline-block;
+  border-top: 1px solid #eee;
+  color: var(--bigoo-second-color);
+}
+
+.githublink {
+  position: fixed;
+  top:10px;
+  right: 10px;
+  font-size: 0.8em;
+}
+h2 {
+  font-family: "colortube";
+  font-size: 1em;
+  color: var(--bigoo-main-color);
+  padding: 20px 0;
+  text-align: center;
+}
+
+ol {
+  display: inline-block;
+  text-align: left;
+  list-style-type: none;
+  counter-reset: numero;
+}
+  li {
+    padding: 20px 0;
+    counter-increment: numero;
+    position: relative;
+  }
+  li::before {
+    content: counter(numero);
+    position: absolute;
+    top:20px;
+    left: -51px;
+    color: var(--bigoo-main-color);
+    border: 1px solid #ddd;
+    line-height: 20px;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 50%;
+    background-color: #fff;
+  }
+  li + li {
+    border-top: 1px solid #eee;
+  }
+.code {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.9em;
+  background: #222;
+  color: #FFF;
+  display: block;
+  padding: 5px 10px;
+  margin: 10px;
+  text-align: left;
+}
+
+.text {
+  max-width: 600px;
+  line-height: 1.8em;
+  border-radius: 2px;
+  margin: 100px auto;
+}
+.description {
+  padding: 40px;
+  max-width: 600px;
+  line-height: 1.8em;
+  border: 1px solid #eee;
+  border-radius: 2px;
+  margin: 50px auto 0;
+}
+.pickers {}
+  .picker-text {}
+  .picker {
+    padding: 20px 0 0;
+  }
+    .picker-label {
+      display: block;
+      font-size: 0.8em;
+      padding: 10px 0;
+      border-top: 1px solid #eee;
+    }
+    .color {
+      display: inline-block;
+      height: 20px;
+      width: 20px;
+      box-shadow:  0 0 0 5px #fff inset;
+      transition: box-shadow 100ms;
+    }
+    .color:hover,
+    .color:focus {
+      box-shadow:  0 0 0 2px #fff inset;
+    }
+    .color.color-active {
+      box-shadow:  0 0 0 0 #fff inset;
+    }
+    .size {
+      display: inline-block;
+      font-size: 0.8em;
+      padding: 0 4px;
+      margin: 2px;
+      cursor: pointer;
+      box-shadow:  0;
+      transition: box-shadow 100ms;
+    }
+    .size:hover,
+    .size:focus {
+      box-shadow:  0 0 0 1px #aaa inset;
+    }
+    .size.size-active {
+      box-shadow:  0 0 0 1px #888 inset;
+    }
+
+.demo {
+  display: grid;
+  padding: 50px 0 100px;
+  justify-content: center;
+  grid-template-columns: repeat(3, 200px);
+}
+  .iconblock {
+    text-align: left;
+    padding: 10px;
+  }
+    .bigoo {
+      font-size: var(--icon-size);
+    }
+    .iconname {
+      font-size: 0.8em;
+      color: #AAA;
+    }
+
+.hooks {
+  text-align: left;
+}
+  .exemple {
+    display: block;
+    text-align: center;
+    padding: 20px;
+  }
+.showcase-label {}
+.showcase-input {
+  overflow: hidden;
+  height: 0;
+  width: 0;
+  position: absolute;
+}
+.showcase-input::checked + .showcase-icon::before {
+  content:"coucou";
+}
+
+.footer {
+  padding: 50px 0 100px;
+  margin: 100px 0 0;
+  font-size: 0.9em;
+  border-top: 1px solid #eee;
+}
+
+.hooks .bigoo {
+  font-size: 25px;
+}
+/**/
+.hooks .bigoo-cross::before {
+  color:darkred;
+}
+.hooks .bigoo-cross::after {
+  color:red;
+}
+
+/**/
+.hooks .bigoo-battery-1::before {
+  color:red;
+  animation-name: lowbattery;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+@keyframes lowbattery {
+  0% {opacity: 1;}
+  49% {opacity: 1;}
+  50% {opacity: 0;}
+  100% {opacity: 0;}
+}
+.hooks .bigoo-battery-1::after {
+  color:#ddd;
+}
+
+/**/
+.hooks .bigoo-rafters-up::after {
+  transform: translateY(0);
+  transition: transform 200ms;
+}
+.hooks .bigoo-rafters-up:hover::after {
+  transform: translateY(-14px);
+}
