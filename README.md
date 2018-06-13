@@ -1,4 +1,4 @@
-![GitHub Logo](/images/bigoologo.png)
+![GitHub Logo](/images/bigoo-logo.png)
 
 Bicolor Font Icon by [undless](http://undless.fr)
 
